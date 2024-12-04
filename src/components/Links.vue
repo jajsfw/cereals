@@ -27,9 +27,7 @@
               :style="index < 3 ? 'margin-bottom: 20px' : null"
               @click="jumpLink(item)"
             >
-              <Icon size="26">
-                <component :is="siteIcon[item.icon]" />
-              </Icon>
+              <img :src="item.icon" class="icon" alt="icon" />
               <span class="name text-hidden">{{ item.name }}</span>
             </div>
           </el-col>
@@ -42,8 +40,7 @@
 
 <script setup>
 import { Icon } from "@vicons/utils";
-// 可前往 https://www.xicons.org 自行挑选并在此处引入
-import { Link, Blog, CompactDisc, Cloud, Compass, Book, Fire, LaptopCode, ForumRound } from "@vicons/fa"; // 注意使用正确的类别
+import { Link } from "@vicons/fa";
 import { mainStore } from "@/store";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Mousewheel } from "swiper/modules";
@@ -60,18 +57,6 @@ const siteLinksList = computed(() => {
   }
   return result;
 });
-
-// 网站链接图标
-const siteIcon = {
-  Blog,
-  Cloud,
-  CompactDisc,
-  Compass,
-  Book,
-  Fire,
-  LaptopCode,
-  ForumRound,
-};
 
 // 链接跳转
 const jumpLink = (data) => {
@@ -152,6 +137,12 @@ onMounted(() => {
 
       &:active {
         transform: scale(1);
+      }
+
+      .icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
       }
 
       .name {
