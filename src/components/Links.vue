@@ -70,6 +70,7 @@ const siteIcon = {
   Book,
   Fire,
   LaptopCode,
+  ForumRound,
 };
 
 // 链接跳转
